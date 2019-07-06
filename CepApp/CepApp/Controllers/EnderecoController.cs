@@ -27,13 +27,20 @@ namespace CepApp.Controllers
         {
             return _context.CEP;
         }
+        //enderecos/enderecos/82630-577
         //Listar por Cep *cep deve ser escrito da seguinte forma: xxxxx-xxx*
         [HttpGet("Enderecos/{cep}")]
         public CEP Enderecos(string cep)
         {
             return _context.CEP.Where(e => e.Cep == cep).FirstOrDefault();
         }
-    
+        //Listar enderecos por estado
+        //endereco/enderecosporestado
+        [HttpGet("EnderecosporEstado/{uf}")]
+        public IEnumerable<CEP> GetUf (string uf)
+        {
+            return _context.CEP.Where(e => e.Uf == uf).ToList();
+        }
 
     }
 }
