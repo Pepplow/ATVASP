@@ -21,85 +21,19 @@ namespace CepApp.Controllers
             _context = context;
         }
 
-        // GET: api/Endereco
-        [HttpGet]
+        //Redireciona para endereco/enderecos
+        [HttpGet("Enderecos")]
         public IEnumerable<CEP> GetCEP()
         {
             return _context.CEP;
         }
-
-        // GET: api/Endereco/5
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetCEP([FromRoute] int id)
+        //Listar por Cep *cep deve ser escrito da seguinte forma: xxxxx-xxx*
+        [HttpGet("Enderecos/{cep}")]
+        public CEP Enderecos(string cep)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            var cEP = await _context.CEP.FindAsync(id);
-
-            if (cEP == null)
-            {
-                return NotFound();
-            }
-
-            return Ok(cEP);
+            return _context.CEP.Where(e => e.Cep == cep).FirstOrDefault();
         }
+    
 
-        // PUT: api/Endereco/5
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutCEP([FromRoute] int id, [FromBody] CEP cEP)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            if (id != cEP.CepId)
-            {
-                return BadRequest();
-            }
-
-            _context.Entry(cEP).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!CEPExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return NoContent();
-        }
-
-        // POST: api/Endereco
-        [HttpPost]
-        public async Task<IActionResult> PostCEP([FromBody] CEP cEP)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            _context.CEP.Add(cEP);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction("GetCEP", new { id = cEP.CepId }, cEP);
-        }
-        
-        private bool CEPExists(int id)
-        {
-            return _context.CEP.Any(e => e.CepId == id);
-        }
     }
 }
