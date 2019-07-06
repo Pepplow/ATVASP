@@ -61,7 +61,7 @@ using CepApp.Models;
             WriteLiteral("<h2>Consultar e Cadastrar CEP</h2>\r\n<div style=\"margin-top: 30px;\" class=\"container\">\r\n    ");
             EndContext();
             BeginContext(171, 352, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0fb92313e06044fb897a44ff59cc5c7a", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d12358d38a484d12bbfa73a4a0c90db1", async() => {
                 BeginContext(203, 313, true);
                 WriteLiteral(@"
         <label for=""cepNumero"">CEP</label>

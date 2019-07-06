@@ -1,4 +1,4 @@
-﻿// André Cantarin do Rosário, Anderson Dos Santos Sanji, Giovani Augusto dos Santos Pepplow, Leonardo Cordeiro
+﻿//Giovane Augusto dos Santos Pepplow
 using System;
 using System.Collections.Generic;
 using System.Linq;

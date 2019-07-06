@@ -59,7 +59,10 @@ namespace CepApp
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Cep}/{action=Index}/{id?}");
+                    template: "{controller=Cep}/{action=Index}/{id?}")
+                .MapRoute(
+                    name: "api",
+                    template: "api/{controller}/{action=Endereco}/{id?}");
             });
         }
     }
