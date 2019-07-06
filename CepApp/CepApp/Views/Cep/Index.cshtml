@@ -1,0 +1,65 @@
+﻿@model IEnumerable<CepApp.Models.CEP>
+@{
+    ViewData["Title"] = "Index";
+}
+<h2>Consultar e Cadastrar CEP</h2>
+<div style="margin-top: 30px;" class="container">
+    <form asp-action="ConsultarCep">
+        <label for="cepNumero">CEP</label>
+        <input type="text" class="text-capitalize" name="cepNumero" id="cepNumero" placeholder="Insira o CEP para consulta" />
+        <br />
+        <br />
+        <input type="submit" value="Consultar e Cadastrar" class="btn btn-success" />
+        <hr />
+    </form>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Cep)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Logradouro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Complemento)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bairro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Localidade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Uf)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cep)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Logradouro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Complemento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Bairro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Localidade)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Uf)
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
